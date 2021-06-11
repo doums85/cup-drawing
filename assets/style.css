@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+/*===== Reset =====*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*===== Variable CSS =====*/
+:root {
+    --body-color: #5bb19d;
+    --white-color: #f9f9f9;
+    --white-color-alt: #d9d9d9;
+    --plate-color: #e7e7e7;
+    --content-color: #b1725b;
+    --content-color-alt: #e28462;
+    --vapour-color: white;
+
+}
+
+/*
+── ──────────────────────────────────────────────── I ──────────
+──   :::::: GLOBAL
+── ──────────────────────────────────────────────────────────
+──
+*/
+html {
+    overflow: hidden;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Caveat', cursive;
+    background: var(--body-color);
+    transition: all .7s;
+    overflow: hidden;
+}
+
+/*===== Change Content =====*/
+
+body.coffee {
+    --body-color: #0e4b63;
+    --content-color: #63260f;
+    --content-color-alt: #050404;
+}
+
+body.tea {
+    --body-color: rgb(36, 133, 69);
+    --content-color: #f76204;
+    --content-color-alt: #d21f02;
+}
+
+body.milk {
+    --content-color: #e6e9df;
+    --content-color-alt: #e4e2d5;
+    --body-color: #eeb2b6;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.border-radius {
+    border-radius: 50%;
+
+}
+
+/*===== Container =====*/
+.container {
+    position: relative;
+    top: 3.15rem;
+
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+/*
+── ──────────────────────────────────────────────── I ──────────
+──   :::::: Plate 🍵 
+── ──────────────────────────────────────────────────────────
+──
+*/
+.plate {
+    width: 31.2rem;
+    height: 12.5rem;
+    bottom: -2.8rem;
+    left: 50%;
+    background: linear-gradient(to right, var(--white-color), var(--plate-color));
+    box-shadow: 0 35px 35px rgba(0, 0, 0, .2);
+    transform: translateX(-50%);
+}
+
+.plate::before {
+    content: '';
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    bottom: 0.6rem;
+    left: 0.6rem;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, var(--white-color), var(--plate-color));
+
+}
+
+.plate::after {
+    content: '';
+    position: absolute;
+    top: 1.8rem;
+    right: 1.8rem;
+    bottom: 1.8rem;
+    left: 1.8rem;
+    border-radius: 50%;
+    background: radial-gradient(rgba(0, 0, 0, .2) 25%, transparent, transparent);
+
+}
+
+
+/*
+── ──────────────────────────────────────────────── I ──────────
+──   :::::: CUP 🍵 
+── ──────────────────────────────────────────────────────────
+──
+*/
+
+.cup {
+    /*===== 1rem => 16px =====*/
+    position: relative;
+    width: 17.5rem;
+    height: 18.5rem;
+    background: linear-gradient(to right, var(--white-color), var(--white-color-alt));
+    border-radius: 0 0 45% 45%;
+}
+
+/*===== Tea =====*/
+.cup__top {
+    top: -1.9rem;
+    width: 100%;
+    height: 3.7rem;
+    background: linear-gradient(to right, var(--white-color), var(--white-color-alt));
+}
+
+.cup__top--circle {
+    width: calc(100% - 1.3rem);
+    height: 3rem;
+    top: .3rem;
+    left: 0.6rem;
+    background: linear-gradient(to left, var(--white-color), var(--white-color-alt));
+    overflow: hidden;
+}
+
+.cup__tea {
+    width: 100%;
+    height: 100%;
+    top: 1.25rem;
+    left: 0;
+    background: linear-gradient(var(--content-color), var(--content-color-alt));
+}
+
+
+/*===== Cup Handle =====*/
+.cup__handle {
+    top: 2.3rem;
+    right: -4.3rem;
+    width: 10rem;
+    height: 11.2rem;
+    border: 1.6rem solid var(--white-color-alt);
+    border-left: 1.6rem solid transparent;
+    border-bottom: 1.6rem solid transparent;
+    transform: rotate(42deg);
+}
+
+
+/*
+── ──────────────────────────────────────────────── I ──────────
+──   :::::: VAPOUR 💨
+── ──────────────────────────────────────────────────────────
+──
+*/
+
+.cup__top--vapour {
+    position: relative;
+    display: flex;
+    padding: 0 1.25rem;
+    z-index: 1;
+}
+
+.cup__top--vapour span {
+    position: relative;
+    min-width: .5rem;
+    height: 7.5rem;
+    display: block;
+    bottom: 3.1rem;
+    margin: 0 0.1rem 3.1rem;
+    background: var(--vapour-color);
+    border-radius: 50%;
+    filter: blur(10px);
+    animation: vapourAnimate 5s linear infinite;
+    animation-delay: calc(var(--i) * -0.5s);
+}
+
+
+
+/*
+── ──────────────────────────────────────────────── I ──────────
+──   :::::: IMAGE 🏙
+── ──────────────────────────────────────────────────────────
+──
+*/
+
+.cup__img {
+    width: 10rem;
+    top: 4.2rem;
+    left: 3.5rem;
+    transition: all .7s;
+}
+
+/*===== Fix milk logo =====*/
+.img-milk {
+    top: 7rem;
+    left: 1.5rem;
+    width: 14rem
+}
+
+.img-tea {
+    width: 12rem;
+    top: 4.5rem;
+    left: 1.8rem;
+}
+
+.img-coffee {
+    width: 13rem;
+    top: 3rem;
+    left: 2.8rem;
+}
+
+
+/*
+── ──────────────────────────────────────────────── I ──────────
+──   :::::: Menu choice
+── ──────────────────────────────────────────────────────────
+──
+*/
+.choice {
+    bottom: 7rem;
+}
+
+.choice__list {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+.choice__item {
+    width: 7rem;
+    padding: .5rem 1rem;
+    font-size: 1.4rem;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    background: var(--vapour-color);
+    color: var(--body-color);
+}
+
+.choice__item:hover {
+    animation: wobble-skew 1s ease-in-out 1;
+}
+
+
+
+/*
+── ──────────────────────────────────────────────── I ──────────
+──   :::::: COPYRIGHT 🍵 
+── ──────────────────────────────────────────────────────────
+──
+*/
+
+.github {
+    left: -3.5rem;
+    bottom: 1rem;
+}
+
+.github:hover {
+    animation: wobble-skew 1s ease-in-out 1;
+}
+
+.github a {
+    color: var(--body-color);
+}
+
+.github i {
+    font-size: 2rem;
+}
+
+
+
+/*
+── ──────────────────────────────────────────────── I ──────────
+──   :::::: Media Queries
+── ──────────────────────────────────────────────────────────
+──
+*/
+@media screen and (max-width: 678px) {
+    .choice {
+        bottom: 2rem;
+    }
+}
+
+@media screen and (max-width: 539px) {
+    .container {
+        top: 0.2rem;
+    }
+
+    .plate {
+        width: 22.2rem;
+        height: 12.5rem;
+    }
+
+    .cup {
+        width: 13.5rem;
+        height: 16.5rem;
+    }
+
+    .cup__handle {
+        width: 9rem;
+        height: 11.2rem;
+        right: -3.3rem;
+        transform: rotate(42deg);
+    }
+
+    .cup__img {
+        top: 3.8rem;
+        left: 1.8rem;
+    }
+
+    .img-coffee {
+        top: 2.8rem !important;
+        width: 11rem;
+    }
+
+    .img-tea {
+        width: 11rem;
+        left: 1rem !important;
+    }
+
+    .img-milk {
+        top: 4.8rem;
+        left: -0.2rem;
+    }
+
+    .github {
+        left: -2.5rem;
+    }
+
+    .choice {
+        bottom: 1rem;
+    }
+
+    .choice__list {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+    }
+
+}
+
+
+
+
+
+/*===== Animation =====*/
+@keyframes vapourAnimate {
+    0% {
+        transform: translateY(0) scaleX(1);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-9.4em) scaleX(5);
+    }
+
+    95% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(-18.75rem) scaleX(10);
+        opacity: 0;
+    }
+}
+
+@keyframes wobble-skew {
+    16.65% {
+        -webkit-transform: skew(-12deg);
+        transform: skew(-12deg);
+    }
+
+    33.3% {
+        -webkit-transform: skew(10deg);
+        transform: skew(10deg);
+    }
+
+    49.95% {
+        -webkit-transform: skew(-6deg);
+        transform: skew(-6deg);
+    }
+
+    66.6% {
+        -webkit-transform: skew(4deg);
+        transform: skew(4deg);
+    }
+
+    83.25% {
+        -webkit-transform: skew(-2deg);
+        transform: skew(-2deg);
+    }
+
+    100% {
+        -webkit-transform: skew(0);
+        transform: skew(0);
+    }
+}

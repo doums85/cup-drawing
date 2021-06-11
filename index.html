@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" >
+    <link rel="stylesheet" href="/assets/style.css">
+    <title>Drawing coffee cup with CSS</title>
+</head>
+
+<body>
+    <div class="container">
+        <!--====== Plate ======-->
+        <div class="plate absolute border-radius"></div>
+        <!--====== Cup ======-->
+        <div class="cup">
+            <!--====== Tea's cup ======-->
+            <div class="cup__top absolute border-radius">
+                <div class="cup__top--vapour">
+                    <span style="--i:1;"></span>
+                    <span style="--i:3;"></span>
+                    <span style="--i:16;"></span>
+                    <span style="--i:5;"></span>
+                    <span style="--i:13;"></span>
+                    <span style="--i:20;"></span>
+                    <span style="--i:6;"></span>
+                    <span style="--i:7;"></span>
+                    <span style="--i:10;"></span>
+                    <span style="--i:8;"></span>
+                    <span style="--i:17;"></span>
+                    <span style="--i:11;"></span>
+                    <span style="--i:12;"></span>
+                    <span style="--i:14;"></span>
+                    <span style="--i:2;"></span>
+                    <span style="--i:9;"></span>
+                    <span style="--i:15;"></span>
+                    <span style="--i:4;"></span>
+                    <span style="--i:19;"></span>
+                </div>
+                <div class="cup__top--circle absolute border-radius">
+                    <div class="cup__tea absolute border-radius"></div>
+                </div>
+            </div>
+
+            <!--====== Cup handle ======-->
+            <div class="cup__handle absolute border-radius"></div>
+
+            <!--====== Logo ======-->
+            <div class="cup__img absolute">
+                <img id="logo" src="/assets/images/chocolate.png" alt="chocolate">
+            </div>
+
+            <div class="github absolute">
+                <a target="_blank" href="https://github.com/doums85/cup-drawing"><i class="fab fa-github"></i></a> 
+            </div>
+        </div>
+    </div>
+    <div class="choice absolute">
+        <ul class="choice__list">
+            <li onclick="changeCup(this)" class="choice__item active" data-id="chocolate">Chocolate</li>
+            <li onclick="changeCup(this)" class="choice__item" data-id="coffee">Coffee</li>
+            <li onclick="changeCup(this)" class="choice__item" data-id="tea">Tea</li>
+            <li onclick="changeCup(this)" class="choice__item" data-id="milk">Milk</li>
+        </ul>
+    </div>
+
+
+
+    <!--====== Script JS ======-->
+  <script src="/assets/main.js"></script>
+</body>
+
+</html>
