@@ -17,7 +17,7 @@ function changeCup(cup) {
   cup.className = 'choice__item active';
 
   /*====== Change logo =======*/
-  logo.src = `/assets/images/${cupType}.png`;
+  logo.src = `./assets/images/${cupType}.png`;
 
   if (cupType === 'milk')
     document.querySelector('.cup__img').classList.add('img-milk');
